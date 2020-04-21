@@ -26,8 +26,8 @@ type Antenna struct {
 }
 
 func (ant *Antenna) GaindB(theta, phi float64) (aag map[int]vlib.MatrixF, bestBeamID int, Az, El float64) {
-	theta = Wrap180To180(theta)
-	phi = Wrap0To180(phi)
+	theta = wrap180To180(theta)
+	phi = wrap0To180(phi)
 	var ag float64
 	Az, El, ag = ant.ElementGainDb(theta, phi)
 	hspace := ant.EspacingHfactor
@@ -77,8 +77,8 @@ func (ant *Antenna) GaindB(theta, phi float64) (aag map[int]vlib.MatrixF, bestBe
 }
 
 func (ant *Antenna) ElementGainDb(theta, phi float64) (az, el, Ag float64) {
-	phi = Wrap0To180(phi)
-	theta = Wrap180To180(theta)
+	phi = wrap0To180(phi)
+	theta = wrap180To180(theta)
 	MaxGaindBi := ant.GainDb //    0 for ue and 8 for bs
 	theta3dB := ant.GainDb   // degree
 	phi3dB := ant.VBeamWidth
