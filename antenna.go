@@ -112,7 +112,7 @@ func (ant *Antenna) GetPorts() int {
 
 func (ant *Antenna) FindTxruLocation() []vlib.MatrixF {
 	//Done only for 1 panel
-	if ant.AntennaConfig[2]*ant.AntennaConfig[3] > 1 {
+	if ant.AntennaConfig[3]*ant.AntennaConfig[4] > 1 {
 		log.Panic("Number of Panels more than 1")
 	}
 
